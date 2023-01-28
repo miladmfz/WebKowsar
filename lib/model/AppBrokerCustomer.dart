@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-part 'AppBrokerCustomer.g.dart';
 
 @JsonSerializable()
 class AppBrokerCustomer {
@@ -20,12 +19,6 @@ class AppBrokerCustomer {
       required this.serverURL,
       required this.sQLiteURL,
       required this.maxDevice});
-
-  factory AppBrokerCustomer.fromJson(Map<String, dynamic> json) =>
-      _$AppBrokerCustomerFromJson(json);
-
-  Map<String, dynamic> toJson() => _$AppBrokerCustomerToJson(this);
-
 
 
 

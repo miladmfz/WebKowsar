@@ -1,19 +1,23 @@
 import 'dart:convert' as convert;
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:kowsarweb/model/NumberFunction.dart';
 
 import '../model/AppBrokerCustomer.dart';
 
 class BrokerCustomer extends StatefulWidget {
+  BrokerCustomer({Key? key}) : super(key: key);
+
+  //String teststr;
+
   @override
   State<BrokerCustomer> createState() => _BrokerCustomerState();
 }
 
 class _BrokerCustomerState extends State<BrokerCustomer> {
   List<AppBrokerCustomer> AppBrokerCustomers = [];
+  String _teststr = "";
 
   void getAppBrokerCustomers() {
     if (AppBrokerCustomers.length == 0) {
@@ -52,30 +56,41 @@ class _BrokerCustomerState extends State<BrokerCustomer> {
 
   @override
   Widget build(BuildContext context) {
-    if (AppBrokerCustomers.length < 1) {
+
+    if (AppBrokerCustomers.isEmpty) {
       getAppBrokerCustomers();
     }
+
     return AppBrokerCustomers.length > 0
         ? SingleChildScrollView(
             child: Container(
-              width: 300,
-              //height: MediaQuery.of(context).size.height,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black, width: 2),
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(2)),
+              ),
               child: Column(
                 children: [
-                  SizedBox(height: 20,),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Text(
                     "لیست نرم افزار های کوثر",
-                    style: GoogleFonts.nunito(
+                    style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.w800,
                       fontSize: 20,
                     ),
                   ),
                   ListView.builder(
-                      physics: NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: AppBrokerCustomers.length,
-                      itemBuilder: ListColumn)
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: AppBrokerCustomers.length,
+                    itemBuilder: ListColumn,
+                  ),
+                  SizedBox(
+                    height: 100,
+                  ),
                 ],
               ),
             ),
@@ -91,9 +106,9 @@ class _BrokerCustomerState extends State<BrokerCustomer> {
     var server = AppBrokerCustomers[index].serverURL.substring(
         AppBrokerCustomers[index].serverURL.indexOf("http://") + 7,
         AppBrokerCustomers[index].serverURL.indexOf(":60005"));
-    //print(AppBrokerCustomers[index].englishCompanyName);
+    var thisView=MediaQuery.of(context).size.width*0.63;
     return Container(
-        height: 30,
+        height: 34,
         margin: EdgeInsets.all(5),
         decoration: BoxDecoration(
             border: Border.all(color: Colors.black, width: 1),
@@ -104,12 +119,12 @@ class _BrokerCustomerState extends State<BrokerCustomer> {
             Row(
               children: [
                 Container(
-                  width: 30,
+                  width: thisView*0.034,
                   color: Colors.grey[300],
                   child: Center(
                     child: Text(
                       "$index".farsiNumber,
-                      style: GoogleFonts.nunito(
+                      style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w800,
                         fontSize: 20,
@@ -126,12 +141,12 @@ class _BrokerCustomerState extends State<BrokerCustomer> {
                   ),
                 ),
                 Container(
-                  width: 200,
+                  width: thisView*0.25,
                   color: Colors.grey[300],
                   child: Center(
                     child: Text(
                       AppBrokerCustomers[index].persianCompanyName.farsiNumber,
-                      style: GoogleFonts.nunito(
+                      style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w800,
                         fontSize: 20,
@@ -148,12 +163,12 @@ class _BrokerCustomerState extends State<BrokerCustomer> {
                   ),
                 ),
                 Container(
-                  width: 200,
+                  width: thisView*0.25,
                   color: Colors.grey[300],
                   child: Center(
                     child: Text(
                       AppBrokerCustomers[index].englishCompanyName.farsiNumber,
-                      style: GoogleFonts.nunito(
+                      style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w800,
                         fontSize: 20,
@@ -170,12 +185,12 @@ class _BrokerCustomerState extends State<BrokerCustomer> {
                   ),
                 ),
                 Container(
-                  width: 100,
+                  width: thisView*0.17,
                   color: Colors.grey[300],
                   child: Center(
                     child: Text(
                       AppBrokerCustomers[index].activationCode.farsiNumber,
-                      style: GoogleFonts.nunito(
+                      style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w800,
                         fontSize: 20,
@@ -192,12 +207,12 @@ class _BrokerCustomerState extends State<BrokerCustomer> {
                   ),
                 ),
                 Container(
-                  width: 200,
+                  width: thisView *0.24,
                   color: Colors.grey[300],
                   child: Center(
                     child: Text(
                       server.farsiNumber,
-                      style: GoogleFonts.nunito(
+                      style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w800,
                         fontSize: 20,

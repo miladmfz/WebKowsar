@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:kowsarweb/page/HomePage.dart';
 
 void main() {
-  runApp(const MaterialApp(
+  runApp(MaterialApp(
+    theme: ThemeData(
+      fontFamily: 'iransans',
+    ),
     debugShowCheckedModeBanner: false,
     home: MyApp(),
   ));

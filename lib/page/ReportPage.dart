@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:kowsarweb/Panel/ReportPanelView.dart';
 import 'package:kowsarweb/ResponseView/AllBroker.dart';
+import 'package:kowsarweb/ResponseView/ReportCustomerView.dart';
 
 import '../ResponseView/BrokerCustomerVIew.dart';
 import '../GeneralView/HeaderView.dart';
-import '../panel/MainPanelView.dart';
+import '../Panel/MainPanelView.dart';
+import '../ResponseView/ReportGoodsView.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class Reportpage extends StatefulWidget {
+  const Reportpage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<Reportpage> createState() => _ReportpageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  String Statestr = '1';
+class _ReportpageState extends State<Reportpage> {
+  String Statestr = '0';
 
   void SetPanelState(newNumber) {
     setState(() {
@@ -32,7 +35,7 @@ class _HomePageState extends State<HomePage> {
             width: MediaQuery.of(context).size.width,
             child: Column(children: [
               HeaderView(
-                HeaderPage: "1",
+                HeaderPage: "2",
               ),
               SizedBox(height: 30),
               Container(
@@ -41,20 +44,20 @@ class _HomePageState extends State<HomePage> {
                 width: MediaQuery.of(context).size.width,
                 child: Row(
                   children: <Widget>[
-                    SizedBox(width: MediaQuery.of(context).size.width*0.03),
+                    SizedBox(width: 50),
                     Container(
-                      width: MediaQuery.of(context).size.width*0.304,
+                      width: MediaQuery.of(context).size.width - 970,
                       color: Colors.grey[200],
-                      child: MainPanelView(
+                      child: ReportPanelView(
                           teststr: Statestr, SetPanelState: SetPanelState),
                     ),
-                    SizedBox(width: MediaQuery.of(context).size.width*0.014),
+                    SizedBox(width: 20),
                     Container(
-                      width: MediaQuery.of(context).size.width*0.63,
+                      width: 850,
                       color: Colors.grey[200],
-                      child: Statestr == "1" ? BrokerCustomer() : AllBroker(),
+                      child: Statestr == "1" ? ReportGoodsView() : ReportCustomerView(),
                     ),
-                    SizedBox(width: MediaQuery.of(context).size.width*0.021),
+                    SizedBox(width: 50),
                   ],
                 ),
               ),
