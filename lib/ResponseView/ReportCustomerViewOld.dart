@@ -7,23 +7,23 @@ import 'package:kowsarweb/model/NumberFunction.dart';
 
 import '../model/AppBrokerCustomer.dart';
 
-class ReportCustomerView extends StatefulWidget {
-  ReportCustomerView({Key? key}) : super(key: key);
+class ReportCustomerViewOld extends StatefulWidget {
+  ReportCustomerViewOld({Key? key}) : super(key: key);
 
   //String teststr;
 
   @override
-  State<ReportCustomerView> createState() => _ReportCustomerViewState();
+  State<ReportCustomerViewOld> createState() => _ReportCustomerViewState();
 }
 
-class _ReportCustomerViewState extends State<ReportCustomerView> {
+class _ReportCustomerViewState extends State<ReportCustomerViewOld> {
   List<CustomerForosh>  CustomerForoshs= [];
   String _teststr = "";
 
   void getAppBrokerCustomers() {
     if (CustomerForoshs.length == 0) {
       var url =
-          "http://192.168.1.219:60005/login/index.php?tag=GetCustomerForosh";
+          "http://87.107.78.234:60005/login/index.php?tag=GetCustomerForosh";
 
       http.get(Uri.parse(url)).then((response) {
         if (response.statusCode == 200) {

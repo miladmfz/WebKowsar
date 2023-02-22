@@ -22,7 +22,7 @@ class _BrokerCustomerState extends State<BrokerCustomer> {
   void getAppBrokerCustomers() {
     if (AppBrokerCustomers.length == 0) {
       var url =
-          "http://192.168.1.219:60005/login/index.php?tag=GetAppBrokerCustomer";
+          "http://87.107.78.234:60005/login/index.php?tag=GetAppBrokerCustomer";
 
       http.get(Uri.parse(url)).then((response) {
         if (response.statusCode == 200) {
@@ -56,7 +56,6 @@ class _BrokerCustomerState extends State<BrokerCustomer> {
 
   @override
   Widget build(BuildContext context) {
-
     if (AppBrokerCustomers.isEmpty) {
       getAppBrokerCustomers();
     }
@@ -74,14 +73,16 @@ class _BrokerCustomerState extends State<BrokerCustomer> {
                   SizedBox(
                     height: 20,
                   ),
-                  Text(
+              FittedBox(
+                fit: BoxFit.contain,
+                child:Text(
                     "لیست نرم افزار های کوثر",
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.w800,
                       fontSize: 20,
                     ),
-                  ),
+                  ),),
                   ListView.builder(
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
@@ -106,7 +107,7 @@ class _BrokerCustomerState extends State<BrokerCustomer> {
     var server = AppBrokerCustomers[index].serverURL.substring(
         AppBrokerCustomers[index].serverURL.indexOf("http://") + 7,
         AppBrokerCustomers[index].serverURL.indexOf(":60005"));
-    var thisView=MediaQuery.of(context).size.width*0.63;
+    var thisView = MediaQuery.of(context).size.width * 0.63;
     return Container(
         height: 34,
         margin: EdgeInsets.all(5),
@@ -119,15 +120,43 @@ class _BrokerCustomerState extends State<BrokerCustomer> {
             Row(
               children: [
                 Container(
-                  width: thisView*0.034,
+                  width: thisView * 0.034,
                   color: Colors.grey[300],
                   child: Center(
-                    child: Text(
+                    child: FittedBox(
+                      fit: BoxFit.contain,
+                      child:Text(
                       "$index".farsiNumber,
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w800,
-                        fontSize: 20,
+
+                      ),),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 28,
+                  child: VerticalDivider(
+                    thickness: 1,
+                    width: 1,
+                    color: Colors.black,
+                  ),
+                ),
+                Container(
+                  width: thisView * 0.25,
+                  color: Colors.grey[300],
+                  child: Center(
+                    child: FittedBox(
+                      fit: BoxFit.contain,
+                      child: Text(
+                        AppBrokerCustomers[index]
+                            .persianCompanyName
+                            .farsiNumber,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w800,
+                        ),
                       ),
                     ),
                   ),
@@ -141,39 +170,19 @@ class _BrokerCustomerState extends State<BrokerCustomer> {
                   ),
                 ),
                 Container(
-                  width: thisView*0.25,
+                  width: thisView * 0.25,
                   color: Colors.grey[300],
                   child: Center(
-                    child: Text(
-                      AppBrokerCustomers[index].persianCompanyName.farsiNumber,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 28,
-                  child: VerticalDivider(
-                    thickness: 1,
-                    width: 1,
-                    color: Colors.black,
-                  ),
-                ),
-                Container(
-                  width: thisView*0.25,
-                  color: Colors.grey[300],
-                  child: Center(
-                    child: Text(
+                    child: FittedBox(
+                      fit: BoxFit.contain,
+                      child:Text(
                       AppBrokerCustomers[index].englishCompanyName.farsiNumber,
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w800,
-                        fontSize: 20,
+
                       ),
-                    ),
+                    ),),
                   ),
                 ),
                 SizedBox(
@@ -185,17 +194,19 @@ class _BrokerCustomerState extends State<BrokerCustomer> {
                   ),
                 ),
                 Container(
-                  width: thisView*0.17,
+                  width: thisView * 0.17,
                   color: Colors.grey[300],
                   child: Center(
-                    child: Text(
+                    child: FittedBox(
+                      fit: BoxFit.contain,
+                      child:Text(
                       AppBrokerCustomers[index].activationCode.farsiNumber,
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w800,
-                        fontSize: 20,
+
                       ),
-                    ),
+                    ),),
                   ),
                 ),
                 SizedBox(
@@ -207,17 +218,18 @@ class _BrokerCustomerState extends State<BrokerCustomer> {
                   ),
                 ),
                 Container(
-                  width: thisView *0.24,
+                  width: thisView * 0.24,
                   color: Colors.grey[300],
                   child: Center(
-                    child: Text(
+                    child: FittedBox(
+                      fit: BoxFit.contain,
+                      child:Text(
                       server.farsiNumber,
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w800,
-                        fontSize: 20,
                       ),
-                    ),
+                    ),),
                   ),
                 ),
               ],

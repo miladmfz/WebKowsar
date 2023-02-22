@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kowsarweb/Panel/ReportPanelView.dart';
+import 'package:kowsarweb/Panel/BrokerPanelView.dart';
 import 'package:kowsarweb/ResponseView/AllBroker.dart';
-import 'package:kowsarweb/ResponseView/ReportCustomerView.dart';
+import 'package:kowsarweb/ResponseView/BrokersView.dart';
 
 import '../ResponseView/BrokerCustomerVIew.dart';
 import '../GeneralView/HeaderView.dart';
@@ -16,7 +16,7 @@ class Reportpage extends StatefulWidget {
 }
 
 class _ReportpageState extends State<Reportpage> {
-  String Statestr = '0';
+  String Statestr = '1';
 
   void SetPanelState(newNumber) {
     setState(() {
@@ -44,20 +44,20 @@ class _ReportpageState extends State<Reportpage> {
                 width: MediaQuery.of(context).size.width,
                 child: Row(
                   children: <Widget>[
-                    SizedBox(width: 50),
+                    SizedBox(width: MediaQuery.of(context).size.width*0.03),
                     Container(
-                      width: MediaQuery.of(context).size.width - 970,
+                      width: MediaQuery.of(context).size.width*0.304,
                       color: Colors.grey[200],
-                      child: ReportPanelView(
+                      child: BrokerPanelView(
                           teststr: Statestr, SetPanelState: SetPanelState),
                     ),
-                    SizedBox(width: 20),
+                    SizedBox(width: MediaQuery.of(context).size.width*0.014),
                     Container(
-                      width: 850,
+                      width: MediaQuery.of(context).size.width*0.63,
                       color: Colors.grey[200],
-                      child: Statestr == "1" ? ReportGoodsView() : ReportCustomerView(),
+                      child: BrokersView(),
                     ),
-                    SizedBox(width: 50),
+                    SizedBox(width: MediaQuery.of(context).size.width*0.021),
                   ],
                 ),
               ),

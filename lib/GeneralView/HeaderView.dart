@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kowsarweb/page/ReportPage.dart';
+import 'package:kowsarweb/page/BrokerPage.dart';
 import 'package:kowsarweb/page/HomePage.dart';
 
 class HeaderView extends StatefulWidget {
@@ -20,18 +20,20 @@ class _HeaderViewState extends State<HeaderView> {
       child: Row(
         children: [
           SizedBox(
-            width: 100.0,
+            width: MediaQuery.of(context).size.width*0.09,
           ),
           Image.network('http://87.107.78.234:60005/img/logo.png'),
           SizedBox(
-            width: 10.0,
+            width: MediaQuery.of(context).size.width*0.014,
           ),
-          Text(
-            'مدیریت نرم افزار موبایلی کوثر',
-            style: TextStyle(color: Colors.white),
-          ),
+          FittedBox(
+              fit: BoxFit.contain,
+              child: Text(
+                'مدیریت نرم افزار موبایلی کوثر',
+                style: TextStyle(color: Colors.white),
+              )),
           SizedBox(
-            width: 250.0,
+            width: MediaQuery.of(context).size.width*0.10,
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -49,16 +51,16 @@ class _HeaderViewState extends State<HeaderView> {
                       Pagenumber: widget.HeaderPage,
                     ),
               SizedBox(
-                width: 30,
+                width: MediaQuery.of(context).size.width*0.02,
               ),
               widget.HeaderPage == "2"
                   ? HeaderNav(
-                      text: 'گزارشات',
+                      text: 'بازاریاب',
                       selected: true,
                       Pagenumber: widget.HeaderPage,
                     )
                   : HeaderNav(
-                      text:'گزارشات',
+                      text: 'بازاریاب',
                       selected: false,
                       Pagenumber: widget.HeaderPage,
                     ),
@@ -89,13 +91,14 @@ class _HeaderNavState extends State<HeaderNav> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         widget.selected
-            ? Text(
-                widget.text,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15.0,
-                ),
-              )
+            ? FittedBox(
+                fit: BoxFit.contain,
+                child: Text(
+                  widget.text,
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ))
             : GestureDetector(
                 onTap: () {
                   if (widget.Pagenumber == "1") {
@@ -110,14 +113,15 @@ class _HeaderNavState extends State<HeaderNav> {
                     );
                   }
                 },
-                child: Text(
-                  widget.text,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 11.0,
+                child: FittedBox(
+                  fit: BoxFit.contain,
+                  child: Text(
+                    widget.text,
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
-                ),
-              ),
+                )),
         widget.selected
             ? SizedBox(
                 height: 5.0,

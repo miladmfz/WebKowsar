@@ -20,7 +20,7 @@ class _ReportGoodsViewState extends State<ReportGoodsView> {
 
   void GetGoodsSum() {
     if (GoodsSums.length == 0) {
-      var url = "http://192.168.1.219:60005/login/index.php?tag=GetGoodsSum";
+      var url = "http://87.107.78.234:60005/login/index.php?tag=GetGoodsSum";
 
       http.get(Uri.parse(url)).then((response) {
         if (response.statusCode == 200) {

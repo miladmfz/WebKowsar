@@ -19,7 +19,7 @@ class _AllBrokerState extends State<AllBroker> {
   void GetAllBrokers() {
     if (AppInfos.length == 0) {
       var url =
-          "http://192.168.1.219:60005/login/index.php?tag=GetAllBrokers";
+          "http://87.107.78.234:60005/login/index.php?tag=GetAllBrokers";
 
       http.get(Uri.parse(url)).then((response) {
         if (response.statusCode == 200) {

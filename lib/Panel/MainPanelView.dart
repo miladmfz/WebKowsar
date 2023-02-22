@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class MainPanelView extends StatefulWidget {
-  MainPanelView({Key? key, required this.teststr,required this.SetPanelState}) : super(key: key);
+  MainPanelView({Key? key, required this.teststr, required this.SetPanelState})
+      : super(key: key);
   String teststr;
   final SetPanelState;
 
@@ -22,36 +23,37 @@ class _MainPanelViewState extends State<MainPanelView> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
-            height: MediaQuery.of(context).size.width *0.014,
+            height: MediaQuery.of(context).size.width * 0.014,
           ),
           Container(
-            margin: EdgeInsets.all(20),
+            margin: EdgeInsets.all(5),
             width: MediaQuery.of(context).size.width * 0.6,
             child: ElevatedButton(
               onPressed: () {
                 widget.SetPanelState("1");
-
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: widget.teststr == "2"
                     ? Color(0xffbfc0d3)
                     : Color(0xff5c65fd),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(2),
                 ),
-                elevation: 15.0,
+                elevation: 4,
               ),
               child: Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Text(
-                  "لیست نرم افزار های کوثر",
-                  style: TextStyle(fontSize: 20),
-                ),
-              ),
+                  padding: const EdgeInsets.all(2),
+                  child: FittedBox(
+                    fit: BoxFit.contain,
+                    child: Text(
+                      "لیست نرم افزار های کوثر",
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  )),
             ),
           ),
           Container(
-            margin: EdgeInsets.all(20),
+            margin: EdgeInsets.all(5),
             width: MediaQuery.of(context).size.width * 0.6,
             child: ElevatedButton(
               onPressed: () {
@@ -66,21 +68,23 @@ class _MainPanelViewState extends State<MainPanelView> {
                     ? Color(0xff5c65fd)
                     : Color(0xffbfc0d3),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(2),
                 ),
-                elevation: 15.0,
+                elevation: 4,
               ),
               child: Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Text(
-                  "لیست  نرم افزار های فعال",
-                  style: TextStyle(fontSize: 20),
-                ),
-              ),
+                  padding: const EdgeInsets.all(4),
+                  child: FittedBox(
+                    fit: BoxFit.contain,
+                    child: Text(
+                      "لیست  نرم افزار های فعال",
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  )),
             ),
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.width *0.014,
+            height: MediaQuery.of(context).size.width * 0.014,
           ),
         ],
       ),
