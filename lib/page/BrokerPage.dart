@@ -8,17 +8,17 @@ import '../GeneralView/HeaderView.dart';
 import '../Panel/MainPanelView.dart';
 import '../ResponseView/ReportGoodsView.dart';
 
-class Reportpage extends StatefulWidget {
-  const Reportpage({Key? key}) : super(key: key);
+class Brokerpage extends StatefulWidget {
+  const Brokerpage({Key? key}) : super(key: key);
 
   @override
-  State<Reportpage> createState() => _ReportpageState();
+  State<Brokerpage> createState() => _BrokerpageState();
 }
 
-class _ReportpageState extends State<Reportpage> {
+class _BrokerpageState extends State<Brokerpage> {
   String Statestr = '1';
 
-  void SetPanelState(newNumber) {
+  void SetBrokerPage(newNumber) {
     setState(() {
       Statestr = newNumber;
     });
@@ -35,7 +35,7 @@ class _ReportpageState extends State<Reportpage> {
             width: MediaQuery.of(context).size.width,
             child: Column(children: [
               HeaderView(
-                HeaderPage: "2",
+                HeaderPage: "2"
               ),
               SizedBox(height: 30),
               Container(
@@ -46,14 +46,14 @@ class _ReportpageState extends State<Reportpage> {
                   children: <Widget>[
                     SizedBox(width: MediaQuery.of(context).size.width*0.03),
                     Container(
-                      width: MediaQuery.of(context).size.width*0.304,
+                      width: MediaQuery.of(context).size.width*0.254,
                       color: Colors.grey[200],
                       child: BrokerPanelView(
-                          teststr: Statestr, SetPanelState: SetPanelState),
+                          teststr: Statestr, SetBrokerPage: SetBrokerPage),
                     ),
                     SizedBox(width: MediaQuery.of(context).size.width*0.014),
                     Container(
-                      width: MediaQuery.of(context).size.width*0.63,
+                      width: MediaQuery.of(context).size.width*0.68,
                       color: Colors.grey[200],
                       child: BrokersView(),
                     ),

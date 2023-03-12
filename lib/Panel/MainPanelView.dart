@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class MainPanelView extends StatefulWidget {
-  MainPanelView({Key? key, required this.teststr, required this.SetPanelState})
+  MainPanelView({Key? key, required this.teststr, required this.SetHomePageState})
       : super(key: key);
   String teststr;
-  final SetPanelState;
+  final SetHomePageState;
 
   @override
   State<MainPanelView> createState() => _MainPanelViewState();
@@ -30,7 +30,7 @@ class _MainPanelViewState extends State<MainPanelView> {
             width: MediaQuery.of(context).size.width * 0.6,
             child: ElevatedButton(
               onPressed: () {
-                widget.SetPanelState("1");
+                widget.SetHomePageState("1");
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: widget.teststr == "2"
@@ -57,7 +57,7 @@ class _MainPanelViewState extends State<MainPanelView> {
             width: MediaQuery.of(context).size.width * 0.6,
             child: ElevatedButton(
               onPressed: () {
-                widget.SetPanelState("2");
+                widget.SetHomePageState("2");
                 // Navigator.pushReplacement(
                 //     context,
                 //     MaterialPageRoute(

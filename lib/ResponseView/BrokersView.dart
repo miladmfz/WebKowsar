@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:kowsarweb/model/Broker.dart';
 import 'package:kowsarweb/model/NumberFunction.dart';
+import 'package:kowsarweb/page/BrokerDetailPage.dart';
 
 class BrokersView extends StatefulWidget {
   BrokersView({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class _BrokersView extends State<BrokersView> {
   List<Broker> Brokers = [];
   String _teststr = "";
 
-  void getBroker() {
+  void getBrokers() {
     if (Brokers.length == 0) {
       var url = "http://87.107.78.234:60005/login/index.php?tag=GetBrokers";
 
@@ -33,6 +34,9 @@ class _BrokersView extends State<BrokersView> {
                 BrokerCode: JsonTemp[i]["BrokerCode"],
                 CentralRef: JsonTemp[i]["CentralRef"],
                 BrokerNameWithoutType: JsonTemp[i]["BrokerNameWithoutType"],
+                FactorCount: "",
+                Stack: "",
+                CustomerCount: "",
               ));
             });
           }
@@ -44,7 +48,7 @@ class _BrokersView extends State<BrokersView> {
   @override
   Widget build(BuildContext context) {
     if (Brokers.isEmpty) {
-      getBroker();
+      getBrokers();
     }
 
     return Brokers.length > 0
@@ -100,8 +104,7 @@ class _BrokersView extends State<BrokersView> {
             border: Border.all(color: Colors.black, width: 1),
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(2))),
-        child: Column(
-          children: [
+        child:
             Column(
               children: [
                 SizedBox(
@@ -166,23 +169,35 @@ class _BrokersView extends State<BrokersView> {
                     color: Colors.black,
                   ),
                 ),
-                Container(
-                  color: Color(0x82BAE8FF),
-                  child: Center(
-                      child: FittedBox(
-                        fit: BoxFit.contain,
-                        child:Text(
-                          " کد بازاریابی : " + Brokers[index].BrokerCode.farsiNumber,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w800,
-                          ),
-                        ),)
-                  ),
+                SizedBox(
+                  height: 10,
                 ),
+
+                GestureDetector(
+                    onTap: () {
+                      print(Brokers[index].BrokerCode);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => BrokerDetailPage( BrokerCode: Brokers[index].BrokerCode)),
+                      );
+                    },
+                    child: Container(
+                      child: Center(
+                          child: FittedBox(
+                            fit: BoxFit.contain,
+                            child:Text(
+                              "جزئیات بیشتر",
+                              style: TextStyle(
+                                color: Colors.red,
+                                fontWeight: FontWeight.w800,
+                              ),
+                            ),)
+                      ),
+                    ))
+
+                ,
               ],
             )
-          ],
-        ));
+          );
   }
 }

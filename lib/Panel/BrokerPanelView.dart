@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class BrokerPanelView extends StatefulWidget {
   BrokerPanelView(
-      {Key? key, required this.teststr, required this.SetPanelState})
+      {Key? key, required this.teststr, required this.SetBrokerPage})
       : super(key: key);
   String teststr;
-  final SetPanelState;
+  final SetBrokerPage;
 
   @override
   State<BrokerPanelView> createState() => _BrokerPanelView();
@@ -27,11 +27,11 @@ class _BrokerPanelView extends State<BrokerPanelView> {
             height: MediaQuery.of(context).size.width * 0.014,
           ),
           Container(
-            margin: EdgeInsets.all(20),
+            margin: EdgeInsets.all(5),
             width: MediaQuery.of(context).size.width * 0.6,
             child: ElevatedButton(
               onPressed: () {
-                widget.SetPanelState("1");
+                widget.SetBrokerPage("1");
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: widget.teststr == "2"
@@ -43,14 +43,15 @@ class _BrokerPanelView extends State<BrokerPanelView> {
                 elevation: 5.0,
               ),
               child: Padding(
-                  padding: const EdgeInsets.all(15.0),
+                  padding: const EdgeInsets.all(1),
                   child: FittedBox(
-                    fit: BoxFit.contain,
-                    child: Text(
-                      "لیست بازاریاب ها",
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  )),
+                      fit: BoxFit.contain,
+                      child: FittedBox(
+                        fit: BoxFit.contain,
+                        child: Text(
+                          "لیست بازاریاب ها",
+                        ),
+                      ))),
             ),
           ),
           // Container(

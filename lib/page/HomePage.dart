@@ -15,7 +15,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   String Statestr = '1';
 
-  void SetPanelState(newNumber) {
+  void SetHomePageState(newNumber) {
     setState(() {
       Statestr = newNumber;
     });
@@ -43,14 +43,14 @@ class _HomePageState extends State<HomePage> {
                   children: <Widget>[
                     SizedBox(width: MediaQuery.of(context).size.width*0.03),
                     Container(
-                      width: MediaQuery.of(context).size.width*0.304,
+                      width: MediaQuery.of(context).size.width*0.254,
                       color: Colors.grey[200],
                       child: MainPanelView(
-                          teststr: Statestr, SetPanelState: SetPanelState),
+                          teststr: Statestr, SetHomePageState: SetHomePageState),
                     ),
                     SizedBox(width: MediaQuery.of(context).size.width*0.014),
                     Container(
-                      width: MediaQuery.of(context).size.width*0.63,
+                      width: MediaQuery.of(context).size.width*0.68,
                       color: Colors.grey[200],
                       child: Statestr == "1" ? BrokerCustomer() : AllBroker(),
                     ),

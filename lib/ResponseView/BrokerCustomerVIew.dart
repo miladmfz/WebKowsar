@@ -121,7 +121,7 @@ class _BrokerCustomerState extends State<BrokerCustomer> {
               children: [
                 Container(
                   width: thisView * 0.034,
-                  color: Colors.grey[300],
+
                   child: Center(
                     child: FittedBox(
                       fit: BoxFit.contain,
@@ -145,7 +145,7 @@ class _BrokerCustomerState extends State<BrokerCustomer> {
                 ),
                 Container(
                   width: thisView * 0.25,
-                  color: Colors.grey[300],
+
                   child: Center(
                     child: FittedBox(
                       fit: BoxFit.contain,
@@ -171,7 +171,7 @@ class _BrokerCustomerState extends State<BrokerCustomer> {
                 ),
                 Container(
                   width: thisView * 0.25,
-                  color: Colors.grey[300],
+
                   child: Center(
                     child: FittedBox(
                       fit: BoxFit.contain,
@@ -195,7 +195,7 @@ class _BrokerCustomerState extends State<BrokerCustomer> {
                 ),
                 Container(
                   width: thisView * 0.17,
-                  color: Colors.grey[300],
+
                   child: Center(
                     child: FittedBox(
                       fit: BoxFit.contain,
@@ -218,8 +218,8 @@ class _BrokerCustomerState extends State<BrokerCustomer> {
                   ),
                 ),
                 Container(
-                  width: thisView * 0.24,
-                  color: Colors.grey[300],
+                  width: thisView * 0.3,
+
                   child: Center(
                     child: FittedBox(
                       fit: BoxFit.contain,

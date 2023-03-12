@@ -104,7 +104,7 @@ class _HeaderNavState extends State<HeaderNav> {
                   if (widget.Pagenumber == "1") {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => Reportpage()),
+                      MaterialPageRoute(builder: (context) => Brokerpage()),
                     );
                   } else if (widget.Pagenumber == "2") {
                     Navigator.pushReplacement(

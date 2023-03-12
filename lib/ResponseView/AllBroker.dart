@@ -112,7 +112,7 @@ class _AllBrokerState extends State<AllBroker> {
 
 
     var Seperator = (AppInfos[index].BrokerStr.split(",").length );
-
+    var thisView_width = MediaQuery.of(context).size.width * 0.67;
 
     return Container(
         height: 34,
@@ -127,16 +127,16 @@ class _AllBrokerState extends State<AllBroker> {
               children: [
                 Container(
                   width: 30,
-                  color: Colors.grey[300],
                   child: Center(
-                    child: Text(
+                    child:FittedBox(
+                      fit: BoxFit.contain,
+                      child: Text(
                       "$index".farsiNumber,
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w800,
-                        fontSize: 20,
                       ),
-                    ),
+                    ),)
                   ),
                 ),
                 SizedBox(
@@ -148,17 +148,17 @@ class _AllBrokerState extends State<AllBroker> {
                   ),
                 ),
                 Container(
-                  width: 220,
-                  color: Colors.grey[300],
+                  width: thisView_width*0.25,
                   child: Center(
-                    child: Text(
+                    child: FittedBox(
+                      fit: BoxFit.contain,
+                      child:Text(
                       AppInfos[index].Server_Name.farsiNumber,
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w800,
-                        fontSize: 20,
                       ),
-                    ),
+                    ),)
                   ),
                 ),
                 SizedBox(
@@ -170,17 +170,17 @@ class _AllBrokerState extends State<AllBroker> {
                   ),
                 ),
                 Container(
-                  width: 150,
-                  color: Colors.grey[300],
+                  width: thisView_width*0.2,
                   child: Center(
-                    child: Text(
+                    child: FittedBox(
+                      fit: BoxFit.contain,
+                      child:Text(
                       Seperator.toString().farsiNumber,
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w800,
-                        fontSize: 20,
                       ),
-                    ),
+                    ),)
                   ),
                 ),
                 SizedBox(
@@ -192,17 +192,17 @@ class _AllBrokerState extends State<AllBroker> {
                   ),
                 ),
                 Container(
-                  width: 430,
-                  color: Colors.grey[300],
+                  width: thisView_width*0.4,
                   child: Center(
-                    child: Text(
+                    child: FittedBox(
+                      fit: BoxFit.contain,
+                      child:Text(
                       NewbrokerStr.farsiNumber,
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w800,
-                        fontSize: 20,
                       ),
-                    ),
+                    ),)
                   ),
                 ),
               ],
