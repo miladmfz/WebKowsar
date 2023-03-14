@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kowsarweb/ResponseView/AllBroker.dart';
+import 'package:kowsarweb/ResponseView/DownloadView.dart';
 
-import '../ResponseView/BrokerCustomerVIew.dart';
 import '../GeneralView/HeaderView.dart';
+import '../ResponseView/BrokerCustomerVIew.dart';
 import '../panel/MainPanelView.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,7 +14,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String Statestr = '1';
+  String Statestr = '3';
 
   void SetHomePageState(newNumber) {
     setState(() {
@@ -41,20 +42,25 @@ class _HomePageState extends State<HomePage> {
                 width: MediaQuery.of(context).size.width,
                 child: Row(
                   children: <Widget>[
-                    SizedBox(width: MediaQuery.of(context).size.width*0.03),
+                    SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                     Container(
-                      width: MediaQuery.of(context).size.width*0.254,
+                      width: MediaQuery.of(context).size.width * 0.254,
                       color: Colors.grey[200],
                       child: MainPanelView(
-                          teststr: Statestr, SetHomePageState: SetHomePageState),
+                          teststr: Statestr,
+                          SetHomePageState: SetHomePageState),
                     ),
-                    SizedBox(width: MediaQuery.of(context).size.width*0.014),
+                    SizedBox(width: MediaQuery.of(context).size.width * 0.014),
                     Container(
-                      width: MediaQuery.of(context).size.width*0.68,
+                      width: MediaQuery.of(context).size.width * 0.68,
                       color: Colors.grey[200],
-                      child: Statestr == "1" ? BrokerCustomer() : AllBroker(),
+                      child: (Statestr == "1")
+                          ? BrokerCustomer()
+                          : (Statestr == "2")
+                              ? AllBroker()
+                              : DownloadView(),
                     ),
-                    SizedBox(width: MediaQuery.of(context).size.width*0.021),
+                    SizedBox(width: MediaQuery.of(context).size.width * 0.021),
                   ],
                 ),
               ),

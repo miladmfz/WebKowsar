@@ -30,12 +30,13 @@ class _MainPanelViewState extends State<MainPanelView> {
             width: MediaQuery.of(context).size.width * 0.6,
             child: ElevatedButton(
               onPressed: () {
-                widget.SetHomePageState("1");
+                //widget.SetHomePageState("1");
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: widget.teststr == "2"
-                    ? Color(0xffbfc0d3)
-                    : Color(0xff5c65fd),
+                backgroundColor: widget.teststr == "1"
+                    ? Color(0xff5c65fd)
+                    : Color(0xffbfc0d3)
+                ,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(2),
                 ),
@@ -57,16 +58,14 @@ class _MainPanelViewState extends State<MainPanelView> {
             width: MediaQuery.of(context).size.width * 0.6,
             child: ElevatedButton(
               onPressed: () {
-                widget.SetHomePageState("2");
-                // Navigator.pushReplacement(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: (BuildContext context) => AppInfoView()));
+                //widget.SetHomePageState("2");
+
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: widget.teststr == "2"
                     ? Color(0xff5c65fd)
-                    : Color(0xffbfc0d3),
+                    : Color(0xffbfc0d3)
+                ,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(2),
                 ),
@@ -78,6 +77,38 @@ class _MainPanelViewState extends State<MainPanelView> {
                     fit: BoxFit.contain,
                     child: Text(
                       "لیست  نرم افزار های فعال",
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  )),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.all(5),
+            width: MediaQuery.of(context).size.width * 0.6,
+            child: ElevatedButton(
+              onPressed: () {
+                widget.SetHomePageState("3");
+                // Navigator.pushReplacement(
+                //     context,
+                //     MaterialPageRoute(
+                //         builder: (BuildContext context) => AppInfoView()));
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: widget.teststr == "3"
+                    ? Color(0xff5c65fd)
+                    : Color(0xffbfc0d3)
+                    ,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(2),
+                ),
+                elevation: 4,
+              ),
+              child: Padding(
+                  padding: const EdgeInsets.all(4),
+                  child: FittedBox(
+                    fit: BoxFit.contain,
+                    child: Text(
+                      "دانلود",
                       style: TextStyle(fontSize: 20),
                     ),
                   )),

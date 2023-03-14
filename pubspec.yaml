@@ -31,7 +31,7 @@ environment:
 dependencies:
   auto_size_text: ^3.0.0
   cupertino_icons: ^1.0.5
-  dio: ^5.0.1
+  dio: ^5.0.2
   flutter:
     sdk: flutter
   flutter_localizations:
@@ -41,11 +41,16 @@ dependencies:
   google_fonts: ^4.0.3
   google_polyline_algorithm: ^3.1.0
   http: ^0.13.5
+  url_launcher: ^6.1.10
+
   json_annotation: any
   latlong2: ^0.8.1
   location: ^4.4.0
-  syncfusion_flutter_charts: ^20.4.51
+  syncfusion_flutter_charts: ^20.4.53
 
+
+  jalali_calendar:
+    path: C:\Users\milad\AppData\Local\Pub\Cache\hosted\pub.dartlang.org\jalali_calendar-1.0.4
 
 
 dev_dependencies:
